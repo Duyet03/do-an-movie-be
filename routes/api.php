@@ -6,6 +6,7 @@ use App\Http\Controllers\DichVuController;
 use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\PhongController;
+use App\Http\Controllers\SuatChieuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,9 @@ Route::post('/phong/create', [PhongController::class, 'store']);
 Route::delete('/phong/delete/{id}', [PhongController::class, 'destroy']);
 Route::put('/phong/update', [PhongController::class, 'update']);
 Route::put('/phong/doi-trang-thai', [PhongController::class, 'doiTrangThai']);
+
+Route::get('/suat-chieu/data', [SuatChieuController::class, 'getData']);
+Route::post('/suat-chieu/create', [SuatChieuController::class, 'store']);
+Route::delete('/suat-chieu/delete/{id}', [SuatChieuController::class, 'destroy']);
+Route::put('/suat-chieu/update', [SuatChieuController::class, 'update']);
+Route::put('/suat-chieu/doi-trang-thai', [SuatChieuController::class, 'doiTrangThai']);
