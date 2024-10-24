@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KhachHang;
+use App\Models\NhanVien;
 use Illuminate\Http\Request;
 
-class KhachHangController extends Controller
+class NhanVienController extends Controller
 {
     public function getData()
     {
-        $data   =   KhachHang::all();
+        $data   =   NhanVien::all();
         return response()->json([
             'data'  =>  $data
         ]);
@@ -17,46 +17,46 @@ class KhachHangController extends Controller
     public function createData(Request $request)
     {
         $data   =   $request->all();
-        KhachHang::create($data);
+        NhanVien::create($data);
 
         return response()->json([
             'status'    =>  true,
-            'message'   =>  'Đã tạo mới Khach Hang thành công!'
+            'message'   =>  'Đã tạo mới nhân viên thành công!'
         ]);
     }
     public function deleteData($id)
     {
-        KhachHang::find($id)->delete();
+        NhanVien::find($id)->delete();
 
         return response()->json([
             'status'    =>  true,
-            'message'   =>  'Đã xoá Khach Hang thành công!'
+            'message'   =>  'Đã xoá nhân viên thành công!'
         ]);
     }
 
     public function updateData(Request $request)
     {
         $data   = $request->all();
-        KhachHang::find($request->id)->update($data);
+        NhanVien::find($request->id)->update($data);
         return response()->json([
             'status'    =>  true,
-            'message'   =>  'Đã cập nhật  thành công!'
+            'message'   =>  'Đã cập nhật nhân viên thành công!'
         ]);
     }
     public function doiTrangThai(Request $request)
     {
-        $khach_hang = KhachHang::find($request->id);
-        if ($khach_hang) {
-            if ($khach_hang->tinh_trang == 1) {
-                $khach_hang->tinh_trang = 0;
+        $nhan_vien = NhanVien::find($request->id);
+        if ($nhan_vien) {
+            if ($nhan_vien->tinh_trang == 1) {
+                $nhan_vien->tinh_trang = 0;
             } else {
-                $khach_hang->tinh_trang = 1;
+                $nhan_vien->tinh_trang = 1;
             }
-            $khach_hang->save();
+            $nhan_vien->save();
 
             return response()->json([
                 'status' => true,
-                'message' => "Đổi trạng thái khách hàng thành công!"
+                'message' => "Đổi trạng thái nhân viên thành công!"
             ]);
         } else {
             return response()->json([

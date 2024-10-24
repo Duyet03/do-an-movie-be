@@ -19,13 +19,14 @@ class DatabaseSeeder extends Seeder
             ChucVuSeeder::class,
             DanhGiaSeeder::class,
             DichVuSeeder::class,
+            NhanVienSeeder::class
         ]);
 
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

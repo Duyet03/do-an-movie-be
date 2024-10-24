@@ -4,6 +4,7 @@ use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\DanhGiaController;
 use App\Http\Controllers\DichVuController;
 use App\Http\Controllers\KhachHangController;
+use App\Http\Controllers\NhanVienController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,11 @@ Route::put('/khach-hang/update', [KhachHangController::class, 'updateData']);
 Route::delete('/khach-hang/delete/{id}', [KhachHangController::class, 'deleteData']);
 Route::put('/khach-hang/doi-trang-thai', [KhachHangController::class, 'doiTrangThai']);
 
+Route::get('/nhan-vien/data', [NhanVienController::class, 'getData']);
+Route::post('/nhan-vien/create', [NhanVienController::class, 'createData']);
+Route::put('/nhan-vien/update', [NhanVienController::class, 'updateData']);
+Route::delete('/nhan-vien/delete/{id}', [NhanVienController::class, 'deleteData']);
+Route::put('/nhan-vien/doi-trang-thai', [NhanVienController::class, 'doiTrangThai']);
 
 
 Route::get('/dich-vu/data', [DichVuController::class, 'getData']);
@@ -39,5 +45,3 @@ Route::post('/chuc-vu/create', [ChucVuController::class, 'createData']);
 Route::put('/chuc-vu/update', [ChucVuController::class, 'updateData']);
 Route::delete('/chuc-vu/delete/{id}', [ChucVuController::class, 'deleteData']);
 Route::put('/chuc-vu/doi-trang-thai', [ChucVuController::class, 'doiTrangThai']);
-
-
