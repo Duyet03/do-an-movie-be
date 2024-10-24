@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ChucVuSeeder::class,
             DanhGiaSeeder::class,
             DichVuSeeder::class,
-            NhanVienSeeder::class
+            NhanVienSeeder::class,
+            PhongSeeder::class
         ]);
 
         // User::factory(10)->create();
