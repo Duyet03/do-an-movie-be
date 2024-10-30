@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         // Gọi các Seeder cần thiết
         $this->call([
             KhachHangSeeder::class,
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
     }
 }
