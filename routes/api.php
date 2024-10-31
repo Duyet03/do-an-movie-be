@@ -10,6 +10,7 @@ use App\Http\Controllers\SuatChieuController;
 use App\Http\Controllers\ChiTietTheLoaiController;
 use App\Http\Controllers\ChiTietVeController;
 use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\SlideController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -77,3 +78,8 @@ Route::get('/chi-tiet-ve/data', [ChiTietVeController::class, 'getData']);
 Route::post('/chi-tiet-ve/create', [ChiTietVeController::class, 'store']);
 Route::delete('/chi-tiet-ve/delete/{id}', [ChiTietVeController::class, 'destroy']);
 Route::put('/chi-tiet-ve/update', [ChiTietVeController::class, 'update']);
+
+Route::get('/slide/data', [SlideController::class, 'getData']);
+Route::post('/slide/create', [SlideController::class, 'store']);
+Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
+Route::put('/slide/update', [SlideController::class, 'update']);
