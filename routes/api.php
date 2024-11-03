@@ -83,3 +83,4 @@ Route::get('/slide/data', [SlideController::class, 'getData']);
 Route::post('/slide/create', [SlideController::class, 'store']);
 Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
 Route::put('/slide/update', [SlideController::class, 'update']);
+Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
