@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\DanhGiaController;
 use App\Http\Controllers\DichVuController;
@@ -84,3 +85,40 @@ Route::post('/slide/create', [SlideController::class, 'store']);
 Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
 Route::put('/slide/update', [SlideController::class, 'update']);
 Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
+
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+
+// Route::group(['prefix' => '/admin'], function(){
+//     Route::group(['prefix' => '/quan-ly-phim'], function(){
+//         Route::get('lay-du-lieu',[QuanLyPhimController::class, 'getData']);
+//     });
+//     Route::group(['prefix' => '/chuc-nang'], function(){
+
+//     });
+//     Route::group(['prefix' => '/the-loai'], function(){
+
+//     });
+// });
+
+
+Route::group(['prefix' => '/admin'],function(){
+    Route::group(['prefix' => '/quan-ly-phim'], function(){
+        Route::get('/lay-du-lieu',[QuanLyPhimController::class, 'getData']);
+        Route::post('/tim-quan-ly-phim',[QuanLyPhimController::class, 'searchQuanLyPhim']);
+        Route::post('/them-moi-quan-ly-phim',[QuanLyPhimController::class, 'themMoiQuanLyPhim']);
+        Route::delete('/xoa-quan-ly-phim/{id}',[QuanLyPhimController::class, 'xoaQuanLyPhim']);
+        Route::put('/doi-trang-thai',[QuanLyPhimController::class, 'doiTrangThaiQuanLyPhim']);
+        Route::put('/update',[QuanLyPhimController::class, 'createQuanLyPhim']);
+    });
+    Route::group(['prefix' => '/the-loai-phim'], function(){
+        Route::get('/lay-du-lieu',[TheLoaiController::class, 'getData']);
+        Route::post('/search',[TheLoaiController::class, 'searchTheLoai']);
+        Route::post('/create',[TheLoaiController::class, 'createTheLoai']);
+        Route::delete('/delete/{id}',[TheLoaiController::class, 'deleteTheLoai']);
+        Route::put('/update',[TheLoaiController::class, 'updateTheLoai']);
+    });
+});
+

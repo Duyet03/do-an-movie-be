@@ -7897,9 +7897,13 @@
     "aliases": [],
     "minimum-stability": "stable",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "stability-flags": [],
 =======
     "stability-flags": {},
+>>>>>>> master
+=======
+    "stability-flags": [],
 >>>>>>> master
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -7907,9 +7911,13 @@
         "php": "^8.2"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "platform-dev": [],
 =======
     "platform-dev": {},
+>>>>>>> master
+=======
+    "platform-dev": [],
 >>>>>>> master
     "plugin-api-version": "2.6.0"
 }
