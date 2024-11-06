@@ -11,6 +11,8 @@ use App\Http\Controllers\ChiTietTheLoaiController;
 use App\Http\Controllers\ChiTietVeController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\GheController;
+use App\Http\Controllers\PhanQuyenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -84,3 +86,13 @@ Route::post('/slide/create', [SlideController::class, 'store']);
 Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
 Route::put('/slide/update', [SlideController::class, 'update']);
 Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
+
+Route::get('/ghe/data',[GheController::class, 'getData']);
+Route::post('/ghe/create', [GheController::class, 'createData']);
+Route::put('/ghe/update', [GheController::class, 'UpateData']);
+Route::delete('/ghe/delete/{id}', [GheController::class, 'deleteData']);
+
+Route::get('/phan-quyen/data', [PhanQuyenController::class, 'getData']);
+Route::post('/phan-quyen/create', [PhanQuyenController::class, 'createData']);
+Route::delete('/phan-quyen/delete/{id}', [PhanQuyenController::class, 'deleteData']);
+Route::put('/phan-quyen/update', [PhanQuyenController::class, 'UpateData']);
