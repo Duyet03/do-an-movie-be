@@ -11,7 +11,9 @@ use App\Http\Controllers\SuatChieuController;
 use App\Http\Controllers\ChiTietTheLoaiController;
 use App\Http\Controllers\ChiTietVeController;
 use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\QuanLyPhimController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\TheLoaiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
