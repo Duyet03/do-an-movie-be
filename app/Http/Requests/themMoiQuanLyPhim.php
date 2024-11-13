@@ -24,6 +24,7 @@ class themMoiQuanLyPhim extends FormRequest
         return [
             'ten_phim'          => 'required|between:5,50' ,
             'ngay_chieu'        =>'required|date|after:today',
+            'slug_phim' => 'required',
             'thoi_luong'        =>'required',
             'dao_dien'          =>'required|between:5,50',
             'hinh_anh'          =>'required',
@@ -44,7 +45,7 @@ class themMoiQuanLyPhim extends FormRequest
             'ngay_chieu.required'               =>'Ngày chiếu yêu cầu phải chọn',
             'ngay_chieu.after'                  =>'Ngày bắt đầu phải sau ngày hiện tại',
             'thoi_luong.required'               =>'Thời Lượng yêu cầu phải nhập',
-            'dao_dien.required'                 =>'Đạo diễn yêu cầu phải nhập', 
+            'dao_dien.required'                 =>'Đạo diễn yêu cầu phải nhập',
             'dao_dien.between'                  =>'Đạo diễn phải từ 5 đến 50 ký tự',
             'hinh_anh.required'                 =>'Hình ảnh yêu cầu phải nhập',
             'dien_vien.between'                 =>'Diễn viên phải từ 5 đến 50 ký tự',
@@ -58,7 +59,7 @@ class themMoiQuanLyPhim extends FormRequest
             'danh_gia.required'                 =>'Đánh giá bắt buộc phải  nhập',
             'danh_gia.max'                      =>'Đánh giá không quá 255 kí tự',
             'tinh_trang.required'               =>'Tình Trạng bắt buộc phải nhập',
-            
+
         ];
     }
 }

@@ -12,6 +12,7 @@ class QuanLyPhim extends Model
     protected $table = 'quan_ly_phims';
     protected $fillable = [
         'ten_phim',
+        'slug_phim',
         'ngay_chieu',
         'thoi_luong',
         'dao_dien',
@@ -23,6 +24,6 @@ class QuanLyPhim extends Model
         'mo_ta',
         'danh_gia',
         'tinh_trang',
-       
+
     ];
 }

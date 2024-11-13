@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('quan_ly_phims', function (Blueprint $table) {
             $table->id();
             $table->string('ten_phim');
+            $table->string('slug_phim');
             $table->date('ngay_chieu');
             $table->string('thoi_luong');
             $table->string('dao_dien');

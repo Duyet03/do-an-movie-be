@@ -10,27 +10,31 @@ use Illuminate\Support\Facades\Log;
 
 class QuanLyPhimController extends Controller
 {
-    public function getData(){
+    public function getData()
+    {
         $data = QuanLyPhim::all();
         return response()->json([
             'quan_ly_phim' => $data,
-        ]);                    
+        ]);
     }
-    public function searchQuanLyPhim(Request $request){
-        $data = QuanLyPhim::select("id", 'ten_phim', 'ngay_chieu', 'thoi_luong', 'dao_dien', 'hinh_anh' , 'dien_vien', 'nha_san_xuat','id_the_loai', 'gioi_han_do_tuoi', "mo_ta", "danh_gia", "tinh_trang")
-        ->where('ten_phim', $request->abc)
-        ->get();
+    public function searchQuanLyPhim(Request $request)
+    {
+        $data = QuanLyPhim::select("id", 'ten_phim', 'ngay_chieu', 'thoi_luong', 'dao_dien', 'hinh_anh', 'dien_vien', 'nha_san_xuat', 'id_the_loai', 'gioi_han_do_tuoi', "mo_ta", "danh_gia", "tinh_trang")
+            ->where('ten_phim', $request->abc)
+            ->get();
         return response()->json([
             'quan_ly_phim' => $data,
-        ]);    
+        ]);
     }
-    public function themMoiQuanLyPhim(themMoiQuanLyPhim $request){
+    public function themMoiQuanLyPhim(themMoiQuanLyPhim $request)
+    {
         // $data = $request->all();
         // QuanLyPhim::create($data);
         QuanLyPhim::create([
             'ten_phim'              => $request->ten_phim,
             'ngay_chieu'            => $request->ngay_chieu,
             'thoi_luong'            => $request->thoi_luong,
+            'slug_phim' => $request->slug_phim,
             'dao_dien'              => $request->dao_dien,
             'hinh_anh'              => $request->hinh_anh,
             'dien_vien'             => $request->dien_vien,
@@ -46,7 +50,8 @@ class QuanLyPhimController extends Controller
             'message'           =>   'Đã tạo mới phim thành công!',
         ]);
     }
-    public function xoaQuanLyPhim($id){
+    public function xoaQuanLyPhim($id)
+    {
         try {
             QuanLyPhim::where('id', $id)->delete();
             return response()->json([
@@ -61,7 +66,8 @@ class QuanLyPhimController extends Controller
             ]);
         }
     }
-    public function doiTrangThaiQuanLyPhim(Request $request){
+    public function doiTrangThaiQuanLyPhim(Request $request)
+    {
         try {
             if ($request->tinh_trang == 1) {
                 $tinh_trang_moi = 0;
@@ -84,13 +90,14 @@ class QuanLyPhimController extends Controller
             ]);
         }
     }
-    public function createQuanLyPhim(Request $request){
+    public function createQuanLyPhim(Request $request)
+    {
         $data = $request->all();
         QuanLyPhim::find($request->id)->update($data);
         return response()->json([
-                    'status' => true,
-                    'message' => 'Đã cập nhật thành công Quan Ly Phim',
-                ]);
+            'status' => true,
+            'message' => 'Đã cập nhật thành công Quan Ly Phim',
+        ]);
         // $data = $request->all();
         // $qlFilm = QuanLyPhim::find($request->id);
         // if ($qlFilm) {
@@ -106,13 +113,32 @@ class QuanLyPhimController extends Controller
         //     ]);
         // }
     }
-    
+
+    public function phimChiTiet($id)
+    {
+        $phim = QuanLyPhim::where('id', $id)->first();
+
+        if ($phim) {
+            return response()->json([
+                'status' => true,
+                'data' => $phim
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => "Không có phim!"
+            ]);
+        }
+    }
+
+
+
     // /**
     //  * Display a listing of the resource.
     //  */
     // public function index()
     // {
-        
+
     // }
 
     // /**

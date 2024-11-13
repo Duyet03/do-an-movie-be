@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
             NhanVienSeeder::class,
             PhongSeeder::class,
             SuatChieuSeeder::class,
-            PhanQuyenSeeder::class
-
+            PhanQuyenSeeder::class,
+            QuanLyPhimSeeder::class,
+            SlideSeeder::class
         ]);
 
         // User::factory(10)->create();

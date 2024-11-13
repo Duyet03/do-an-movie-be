@@ -16,6 +16,7 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\GheController;
 use App\Http\Controllers\PhanQuyenController;
 use App\Http\Controllers\TheLoaiController;
+use App\Http\Controllers\TrangChuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -86,11 +87,7 @@ Route::group(['middleware' => 'adminMiddle'], function () {
     Route::delete('/chi-tiet-ve/delete/{id}', [ChiTietVeController::class, 'destroy']);
     Route::put('/chi-tiet-ve/update', [ChiTietVeController::class, 'update']);
 
-    Route::get('/slide/data', [SlideController::class, 'getData']);
-    Route::post('/slide/create', [SlideController::class, 'store']);
-    Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
-    Route::put('/slide/update', [SlideController::class, 'update']);
-    Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
+
 
 
     Route::get('/ghe/data', [GheController::class, 'getData']);
@@ -107,6 +104,8 @@ Route::group(['middleware' => 'adminMiddle'], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     })->middleware('auth:sanctum');
+
+
 
     // Route::group(['prefix' => '/admin'], function(){
     //     Route::group(['prefix' => '/quan-ly-phim'], function(){
@@ -143,3 +142,11 @@ Route::group(['middleware' => 'adminMiddle'], function () {
 // dang nhap admin
 Route::post('/admin/dang-nhap', [NhanVienController::class, 'dangNhap']);
 Route::post("/kiem-tra-token-admin", [NhanVienController::class, "kiemTraToken"]);
+Route::get('/trang-chu/data', [TrangChuController::class, 'dataTrangChu']);
+
+Route::get('/phim-chi-tiet/{id}', [QuanLyPhimController::class, 'phimChiTiet']);
+Route::get('/slide/data', [SlideController::class, 'getData']);
+    Route::post('/slide/create', [SlideController::class, 'store']);
+    Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
+    Route::put('/slide/update', [SlideController::class, 'update']);
+    Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
