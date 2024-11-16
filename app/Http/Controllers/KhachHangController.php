@@ -43,6 +43,7 @@ class KhachHangController extends Controller
             'message'   =>  'Đã cập nhật  thành công!'
         ]);
     }
+
     public function doiTrangThai(Request $request)
     {
         $khach_hang = KhachHang::find($request->id);
