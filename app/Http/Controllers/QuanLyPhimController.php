@@ -19,7 +19,7 @@ class QuanLyPhimController extends Controller
     }
     public function searchQuanLyPhim(Request $request)
     {
-        $data = QuanLyPhim::select("id", 'ten_phim', 'ngay_chieu', 'thoi_luong', 'dao_dien', 'hinh_anh', 'dien_vien', 'nha_san_xuat', 'id_the_loai', 'gioi_han_do_tuoi', "mo_ta", "danh_gia", "tinh_trang")
+        $data = QuanLyPhim::select("id", 'ten_phim', 'ngay_chieu', 'thoi_luong', 'dao_dien', 'hinh_anh', 'baner1', 'baner2', 'baner3', 'dien_vien', 'nha_san_xuat', 'id_the_loai', 'gioi_han_do_tuoi', "mo_ta", "danh_gia", "tinh_trang")
             ->where('ten_phim', $request->abc)
             ->get();
         return response()->json([
@@ -34,9 +34,12 @@ class QuanLyPhimController extends Controller
             'ten_phim'              => $request->ten_phim,
             'ngay_chieu'            => $request->ngay_chieu,
             'thoi_luong'            => $request->thoi_luong,
-            'slug_phim' => $request->slug_phim,
+            'slug_phim'             => $request->slug_phim,
             'dao_dien'              => $request->dao_dien,
             'hinh_anh'              => $request->hinh_anh,
+            'baner1'                => $request->baner1,
+            'baner2'                => $request->baner2,
+            'baner3'                => $request->baner3,
             'dien_vien'             => $request->dien_vien,
             'nha_san_xuat'          => $request->nha_san_xuat,
             'id_the_loai'           => $request->id_the_loai,

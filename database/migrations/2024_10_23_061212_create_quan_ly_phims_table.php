@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('thoi_luong');
             $table->string('dao_dien');
             $table->string('hinh_anh');
+            $table->string('baner1');
+            $table->string('baner2');
+            $table->string('baner3');
             $table->string('dien_vien');
             $table->string('nha_san_xuat');
             $table->string('id_the_loai');
