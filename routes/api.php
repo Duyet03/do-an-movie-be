@@ -160,4 +160,3 @@ Route::get('/phong/data', [PhongController::class, 'getData']);
 Route::post('/phong/create', [PhongController::class, 'store']);
 Route::delete('/phong/delete/{id}', [PhongController::class, 'destroy']);
 Route::put('/phong/update', [PhongController::class, 'update']);
-Route::put('/phong/doi-trang-thai', [PhongController::class, 'doiTrangThai']);
