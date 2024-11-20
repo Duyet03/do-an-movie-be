@@ -17,6 +17,7 @@ use App\Http\Controllers\GheController;
 use App\Http\Controllers\PhanQuyenController;
 use App\Http\Controllers\TheLoaiController;
 use App\Http\Controllers\TrangChuController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,8 +44,6 @@ Route::group(['middleware' => 'adminMiddle'], function () {
     Route::put('/dich-vu/update', [DichVuController::class, 'updateData']);
     Route::delete('/dich-vu/delete/{id}', [DichVuController::class, 'deleteData']);
     Route::put('/dich-vu/doi-trang-thai', [DichVuController::class, 'doiTrangThai']);
-
-
 
     Route::get('/danh-gia/data', [DanhGiaController::class, 'getData']);
     Route::post('/danh-gia/create', [DanhGiaController::class, 'createData']);
@@ -146,7 +145,19 @@ Route::get('/trang-chu/data', [TrangChuController::class, 'dataTrangChu']);
 
 Route::get('/phim-chi-tiet/{id}', [QuanLyPhimController::class, 'phimChiTiet']);
 Route::get('/slide/data', [SlideController::class, 'getData']);
-    Route::post('/slide/create', [SlideController::class, 'store']);
-    Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
-    Route::put('/slide/update', [SlideController::class, 'update']);
-    Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
+Route::post('/slide/create', [SlideController::class, 'store']);
+Route::delete('/slide/delete/{id}', [SlideController::class, 'destroy']);
+Route::put('/slide/update', [SlideController::class, 'update']);
+Route::put('/slide/doi-trang-thai', [SlideController::class, 'doiTrangThai']);
+
+Route::get('/chuc-vu/data', [ChucVuController::class, 'getData']);
+Route::post('/chuc-vu/create', [ChucVuController::class, 'createData']);
+Route::put('/chuc-vu/update', [ChucVuController::class, 'updateData']);
+Route::delete('/chuc-vu/delete/{id}', [ChucVuController::class, 'deleteData']);
+Route::put('/chuc-vu/doi-trang-thai', [ChucVuController::class, 'doiTrangThai']);
+
+Route::get('/phong/data', [PhongController::class, 'getData']);
+Route::post('/phong/create', [PhongController::class, 'store']);
+Route::delete('/phong/delete/{id}', [PhongController::class, 'destroy']);
+Route::put('/phong/update', [PhongController::class, 'update']);
+Route::put('/phong/doi-trang-thai', [PhongController::class, 'doiTrangThai']);

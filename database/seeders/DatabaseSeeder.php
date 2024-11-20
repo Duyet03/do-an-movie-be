@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             SuatChieuSeeder::class,
             PhanQuyenSeeder::class,
             QuanLyPhimSeeder::class,
-            SlideSeeder::class
+            SlideSeeder::class,
+
+
         ]);
 
         // User::factory(10)->create();
