@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             SlideSeeder::class,
 
 
+
         ]);
 
         // User::factory(10)->create();
